@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
-import ru.netology.web.data.DataHelper;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -35,11 +33,6 @@ public class DashboardPage {
         var text = cards.get(index).getText();
         return extractBalance(text);
     }
-
-   /* public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
-        cards.findBy(Condition.attribute("data-test-id", cardInfo.getTestId())).$("button").click();
-        return new TransferPage();
-    }*/
 
     public TransferPage selectCardToTransfer(int index) {
         cards.get(index).$("button").click();
