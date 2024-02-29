@@ -18,14 +18,14 @@ public class TransferPage {
         transferHeading.shouldBe(visible);
     }
 
-    public DashboardPage makeValidTransfer(String transferAmount, DataHelper.CardInfo cardInfo) {
-        makeTransfer(transferAmount, cardInfo);
+    public DashboardPage makeValidTransfer(String transferAmount, String fromCardNumber) {
+        makeTransfer(transferAmount, fromCardNumber);
         return new DashboardPage();
     }
 
-    public void makeTransfer(String transferAmount, DataHelper.CardInfo cardInfo) {
+    public void makeTransfer(String transferAmount, String fromCardNumber) {
         amountInput.setValue(transferAmount);
-        fromInput.setValue(cardInfo.getCardNumber());
+        fromInput.setValue(fromCardNumber);
         transferButton.click();
     }
 

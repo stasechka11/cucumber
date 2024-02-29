@@ -22,6 +22,10 @@ public class DashboardPage {
         dashboardHeading.shouldBe(visible);
     }
 
+    public void verifyIsDashboardPage(){
+        dashboardHeading.shouldBe(visible);
+    }
+
     public int getCardBalance(String maskedCardNumber) {
         var text = cards.findBy(Condition.text(maskedCardNumber)).getText();
         return extractBalance(text);
@@ -32,8 +36,13 @@ public class DashboardPage {
         return extractBalance(text);
     }
 
-    public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
+   /* public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo) {
         cards.findBy(Condition.attribute("data-test-id", cardInfo.getTestId())).$("button").click();
+        return new TransferPage();
+    }*/
+
+    public TransferPage selectCardToTransfer(int index) {
+        cards.get(index).$("button").click();
         return new TransferPage();
     }
 
